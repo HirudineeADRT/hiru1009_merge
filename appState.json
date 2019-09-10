@@ -8,7 +8,8 @@
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "01b5aabc-b6cf-4948-b528-df03260ff1aa"
+          "01b5aabc-b6cf-4948-b528-df03260ff1aa",
+          "d0e43261-9e74-4d2a-9998-07bff568cd41"
         ],
         "isRemovable": false,
         "filePath": "hiru1009_merge"
@@ -22,7 +23,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "hiru1009_merge/lambda.js",
-        "code": "exports.handler = function(event, context, callback) {\n    //test 123\n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "code": "let SL_AWS = require('slappforge-sdk-aws');\nlet connectionManager = require('./ConnectionManager');\nconst rds = new SL_AWS.RDS(connectionManager);\n\nexports.handler = function (event, context, callback) {\n\n    // You must always end/destroy the DB connection after it's used\n    rds.beginTransaction({\n        instanceIdentifier: 'K'\n    }, function (error, connection) {\n        if (error) {\n            throw error;\n        }\n    });\n    //test 123\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -30,16 +31,36 @@
           "memory": 128,
           "layers": []
         },
-        "triggers": [],
+        "triggers": [
+          {
+            "resourceName": "apigusEast1TestAPIMyLambdaput",
+            "config": {}
+          },
+          {
+            "resourceName": "apigusEast1sachithraAPInameindunilany",
+            "config": {}
+          }
+        ],
         "testCases": {
           "58cd44a7-2e04-45dd-9db1-cf6239f80d78": {
             "id": "58cd44a7-2e04-45dd-9db1-cf6239f80d78",
             "name": "Test event",
             "functionId": "01b5aabc-b6cf-4948-b528-df03260ff1aa",
-            "event": "{\r\n    \"key1\": \"value1\",\r\n    \"key2\": \"value2\",\r\n    \"key3\": \"value3\"\r\n}",
-            "eventTemplate": "hello-world"
+            "event": "{\r\n    \"jobId\": \"38fd08ce-5f5e-434c-8997-6bba5e3f5a74\"\r\n}",
+            "eventTemplate": "batch-submit-job"
           }
         }
+      },
+      "d0e43261-9e74-4d2a-9998-07bff568cd41": {
+        "id": "d0e43261-9e74-4d2a-9998-07bff568cd41",
+        "parent": "82ac72a1-b9cc-4e2d-951c-6b0d951389f9",
+        "name": "ConnectionManager.js",
+        "type": "JS_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "hiru1009_merge/ConnectionManager.js",
+        "code": "module.exports = function() {\n    this.dbConnections = [];\n\n    this.dbConnections[\"K\"] = {\n        host: process.env.EndPoint_rdsK,\n        port: process.env.Port_rdsK,\n        user: process.env.User_rdsK,\n        password: process.env.Password_rdsK,\n        database: \"k\"\n    };\n};"
       }
     },
     "rootNode": "82ac72a1-b9cc-4e2d-951c-6b0d951389f9",
@@ -109,6 +130,48 @@
           "stageDeploymentId": "5oosz2",
           "mode": 1
         }
+      },
+      "rds-K": {
+        "name": "rds-K",
+        "type": "RDS",
+        "config": {
+          "editMode": false,
+          "operation": 1,
+          "rdsInstance": {
+            "rdsEngineType": "mysql",
+            "rdsEdition": "",
+            "rdsInstanceSpec": {
+              "dbInstanceClass": "db.m4.xlarge",
+              "dbLicenseModel": "general-public-license",
+              "dbEngineVersion": "5.7.17"
+            },
+            "rdsSetting": {
+              "instanceIdentifier": "K",
+              "masterUsername": "K",
+              "masterPassword": "kkkkkkkkk"
+            },
+            "rdsDBOptions": {
+              "dbName": "k",
+              "dbPort": "7823"
+            },
+            "rdsInstanceArn": "",
+            "Host": "",
+            "doesExist": false,
+            "initializationQuery": "",
+            "alreadyDeployed": false
+          },
+          "rdsInstanceResources": [],
+          "projectRegion": "us-east-1",
+          "mode": 0,
+          "additionalFiles": [],
+          "params": {
+            "query": "",
+            "inserts": ""
+          },
+          "isGlobalEditMode": false,
+          "enableInject": true,
+          "isNewFromGlobal": false
+        }
       }
     },
     "customTemplate": {
@@ -137,8 +200,17 @@
       "dependencies": {
         "jimp": {
           "name": "jimp",
+          "language": "javascript",
           "version": "0.8.0",
-          "language": "javascript"
+          "dev": false,
+          "notRemovable": false
+        },
+        "slappforge-sdk-aws": {
+          "name": "slappforge-sdk-aws",
+          "language": "javascript",
+          "version": "0.0.5",
+          "dev": false,
+          "notRemovable": false
         }
       }
     }
@@ -150,7 +222,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1568116678361
+    "lastSave": 1568116836831
   },
   "VCS_STATE": {
     "provider": "GitHub",
