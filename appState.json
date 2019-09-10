@@ -1,0 +1,76 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "82ac72a1-b9cc-4e2d-951c-6b0d951389f9": {
+        "id": "82ac72a1-b9cc-4e2d-951c-6b0d951389f9",
+        "parent": null,
+        "name": "hiru1009_merge",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "01b5aabc-b6cf-4948-b528-df03260ff1aa"
+        ],
+        "isRemovable": false,
+        "filePath": "hiru1009_merge"
+      },
+      "01b5aabc-b6cf-4948-b528-df03260ff1aa": {
+        "id": "01b5aabc-b6cf-4948-b528-df03260ff1aa",
+        "parent": "82ac72a1-b9cc-4e2d-951c-6b0d951389f9",
+        "name": "lambda.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "hiru1009_merge/lambda.js",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": []
+      }
+    },
+    "rootNode": "82ac72a1-b9cc-4e2d-951c-6b0d951389f9",
+    "openFiles": [
+      "01b5aabc-b6cf-4948-b528-df03260ff1aa"
+    ],
+    "currentFileId": "01b5aabc-b6cf-4948-b528-df03260ff1aa",
+    "resources": {},
+    "customTemplate": {
+      "dialect": null,
+      "definitions": null
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {}
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "hiru1009_merge",
+    "projectDescription": "",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1568115617042
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "hiru1009_merge",
+      "url": "https://github.com/HirudineeADRT/hiru1009_merge"
+    }
+  }
+}
