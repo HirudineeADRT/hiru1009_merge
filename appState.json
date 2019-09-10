@@ -36,8 +36,8 @@
             "id": "58cd44a7-2e04-45dd-9db1-cf6239f80d78",
             "name": "Test event",
             "functionId": "01b5aabc-b6cf-4948-b528-df03260ff1aa",
-            "event": "{\r\n    \"jobId\": \"38fd08ce-5f5e-434c-8997-6bba5e3f5a74\"\r\n}",
-            "eventTemplate": "batch-submit-job"
+            "event": "{\r\n    \"key1\": \"value1\",\r\n    \"key2\": \"value2\",\r\n    \"key3\": \"value3\"\r\n}",
+            "eventTemplate": "hello-world"
           }
         }
       }
@@ -71,7 +71,13 @@
       }
     ],
     "packageJSON": {
-      "dependencies": {}
+      "dependencies": {
+        "jimp": {
+          "name": "jimp",
+          "version": "0.8.0",
+          "language": "javascript"
+        }
+      }
     }
   },
   "PROJECT_META": {
@@ -81,7 +87,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1568116089607
+    "lastSave": 1568116152316
   },
   "VCS_STATE": {
     "provider": "GitHub",

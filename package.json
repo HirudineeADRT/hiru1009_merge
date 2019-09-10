@@ -1,6 +1,8 @@
 {
   "name": "hiru1009_merge",
   "version": "1.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "jimp": "0.8.0"
+  },
   "devDependencies": {}
 }
