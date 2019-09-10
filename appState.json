@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "hiru1009_merge/lambda.js",
-        "code": "exports.handler = function(event, context, callback) {\n    //test 123\n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "code": "exports.handler = function (event, context, callback) {\n    //test 123\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -30,14 +30,23 @@
           "memory": 128,
           "layers": []
         },
-        "triggers": [],
+        "triggers": [
+          {
+            "resourceName": "apigusEast1TestAPIMyLambdaput",
+            "config": {}
+          },
+          {
+            "resourceName": "apigusEast1sachithraAPInameindunilany",
+            "config": {}
+          }
+        ],
         "testCases": {
           "58cd44a7-2e04-45dd-9db1-cf6239f80d78": {
             "id": "58cd44a7-2e04-45dd-9db1-cf6239f80d78",
             "name": "Test event",
             "functionId": "01b5aabc-b6cf-4948-b528-df03260ff1aa",
-            "event": "{\r\n    \"key1\": \"value1\",\r\n    \"key2\": \"value2\",\r\n    \"key3\": \"value3\"\r\n}",
-            "eventTemplate": "hello-world"
+            "event": "{\r\n    \"jobId\": \"38fd08ce-5f5e-434c-8997-6bba5e3f5a74\"\r\n}",
+            "eventTemplate": "batch-submit-job"
           }
         }
       }
@@ -47,7 +56,70 @@
       "01b5aabc-b6cf-4948-b528-df03260ff1aa"
     ],
     "currentFileId": "01b5aabc-b6cf-4948-b528-df03260ff1aa",
-    "resources": {},
+    "resources": {
+      "apigusEast1TestAPIMyLambdaput": {
+        "name": "apigusEast1TestAPIMyLambdaput",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "us-east-1",
+          "apiMode": 1,
+          "apiName": "TestAPI",
+          "apiId": "0itznun7w3",
+          "endpointType": "EDGE",
+          "rootResourceId": "h2lelj6j7k",
+          "existingResources": {
+            "/MyLambda": "98nqbj",
+            "/": "h2lelj6j7k",
+            "/newchange/test": "k6pdhn",
+            "/newchange": "q1ox7l",
+            "/testWithSlash": "q4m4g1",
+            "/testtwospeciallambda": "q4szm3",
+            "/testtwospecialkumutest": "wey3lk"
+          },
+          "resourceMode": 1,
+          "resourcePath": "/MyLambda",
+          "resourceName": "MyLambda",
+          "resourceId": "98nqbj",
+          "restMethod": "PUT",
+          "proxyIntegration": false,
+          "enableCORS": false,
+          "stageMode": 1,
+          "stageName": "test12",
+          "stageDeploymentId": "6c2pru",
+          "mode": 1
+        }
+      },
+      "apigusEast1sachithraAPInameindunilany": {
+        "name": "apigusEast1sachithraAPInameindunilany",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "us-east-1",
+          "apiMode": 1,
+          "apiName": "sachithraAPIname",
+          "apiId": "052p9kjn18",
+          "endpointType": "REGIONAL",
+          "rootResourceId": "zrjp6rdv3b",
+          "existingResources": {
+            "/indunil": "gv2c1w",
+            "/indunil/qa/tst/u": "o19eth",
+            "/indunil/qa/tst": "r6hp77",
+            "/indunil/qa": "yptvr5",
+            "/": "zrjp6rdv3b"
+          },
+          "resourceMode": 1,
+          "resourcePath": "/indunil",
+          "resourceName": "indunil",
+          "resourceId": "gv2c1w",
+          "restMethod": "ANY",
+          "proxyIntegration": false,
+          "enableCORS": false,
+          "stageMode": 1,
+          "stageName": "test11",
+          "stageDeploymentId": "5oosz2",
+          "mode": 1
+        }
+      }
+    },
     "customTemplate": {
       "dialect": null,
       "definitions": null
@@ -74,8 +146,10 @@
       "dependencies": {
         "jimp": {
           "name": "jimp",
+          "language": "javascript",
           "version": "0.8.0",
-          "language": "javascript"
+          "dev": false,
+          "notRemovable": false
         }
       }
     }
@@ -87,7 +161,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1568116152316
+    "lastSave": 1568116271246
   },
   "VCS_STATE": {
     "provider": "GitHub",
