@@ -28,26 +28,17 @@
           "runtime": "nodejs8.10",
           "handler": "handler",
           "timeout": 60,
-          "memory": 128,
+          "memory": 640,
           "layers": []
         },
-        "triggers": [
-          {
-            "resourceName": "apigusEast1TestAPIMyLambdaput",
-            "config": {}
-          },
-          {
-            "resourceName": "apigusEast1sachithraAPInameindunilany",
-            "config": {}
-          }
-        ],
+        "triggers": [],
         "testCases": {
           "58cd44a7-2e04-45dd-9db1-cf6239f80d78": {
             "id": "58cd44a7-2e04-45dd-9db1-cf6239f80d78",
             "name": "Test event",
             "functionId": "01b5aabc-b6cf-4948-b528-df03260ff1aa",
-            "event": "{\r\n    \"jobId\": \"38fd08ce-5f5e-434c-8997-6bba5e3f5a74\"\r\n}",
-            "eventTemplate": "batch-submit-job"
+            "event": "{\r\n    \"key1\": \"value1\",\r\n    \"key2\": \"value2\",\r\n    \"key3\": \"value3\",\r\n    \"nii\": \"test\"\r\n}",
+            "eventTemplate": "hello-world"
           }
         }
       },
@@ -200,17 +191,8 @@
       "dependencies": {
         "jimp": {
           "name": "jimp",
-          "language": "javascript",
           "version": "0.8.0",
-          "dev": false,
-          "notRemovable": false
-        },
-        "slappforge-sdk-aws": {
-          "name": "slappforge-sdk-aws",
-          "language": "javascript",
-          "version": "0.0.5",
-          "dev": false,
-          "notRemovable": false
+          "language": "javascript"
         }
       }
     }
@@ -222,7 +204,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1568116836831
+    "lastSave": 1568116948367
   },
   "VCS_STATE": {
     "provider": "GitHub",
