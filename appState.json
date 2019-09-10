@@ -30,7 +30,16 @@
           "memory": 128,
           "layers": []
         },
-        "triggers": []
+        "triggers": [],
+        "testCases": {
+          "58cd44a7-2e04-45dd-9db1-cf6239f80d78": {
+            "id": "58cd44a7-2e04-45dd-9db1-cf6239f80d78",
+            "name": "Test event",
+            "functionId": "01b5aabc-b6cf-4948-b528-df03260ff1aa",
+            "event": "{\r\n    \"jobId\": \"38fd08ce-5f5e-434c-8997-6bba5e3f5a74\"\r\n}",
+            "eventTemplate": "batch-submit-job"
+          }
+        }
       }
     },
     "rootNode": "82ac72a1-b9cc-4e2d-951c-6b0d951389f9",
@@ -64,7 +73,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1568115910413
+    "lastSave": 1568115933704
   },
   "VCS_STATE": {
     "provider": "GitHub",
